@@ -1,6 +1,8 @@
 // @ts-nocheck
 import { useState, useEffect, useRef } from "react";
-
+const EMAILJS_PUBLIC_KEY      = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const EMAILJS_SERVICE_ID      = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_CONTACT   = import.meta.env.VITE_EMAILJS_TEMPLATE_CONTACT;
 const COLORS = {
   cream: "#F5F0E8",
   linen: "#EDE8DC",
@@ -554,9 +556,9 @@ const ContactPage = ({ setPage }) => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          service_id: "YOUR_SERVICE_ID",
-          template_id: "YOUR_TEMPLATE_ID",
-          user_id: "YOUR_PUBLIC_KEY",
+          service_id: EMAILJS_SERVICE_ID,
+          template_id: EMAILJS_TEMPLATE_CONTACT,
+          user_id: EMAILJS_PUBLIC_KEY,
           template_params: {
             from_name: form.name,
             from_email: form.email,
