@@ -31,27 +31,31 @@ const useIsMobile = () => {
   return isMobile;
 };
 
-const IMG_PLACEHOLDER = (label, ratio = "4/3") => (
+const IMG_PLACEHOLDER = (label, ratio = "4/3", image = null) => (
   <div
     style={{
       aspectRatio: ratio,
-      background: `linear-gradient(135deg, ${COLORS.linen} 0%, ${COLORS.bark}44 50%, ${COLORS.moss}33 100%)`,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      flexDirection: "column",
-      gap: "0.5rem",
-      border: `1px dashed ${COLORS.bark}`,
+      background: image? "transparent" : `linear-gradient(135deg, ${COLORS.linen} 0%, ${COLORS.bark}44 50%, ${COLORS.moss}33 100%)`,
       borderRadius: "2px",
       position: "relative",
       overflow: "hidden",
     }}
-  >
+  >{image? (<img
+        src={image}
+        alt={label}
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          display: "block",
+        }}
+      />) : (<>
     <div style={{ position: "absolute", inset: 0, opacity: 0.06, backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%234A5C3A' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E\")" }} />
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={COLORS.bark} strokeWidth="1.2">
       <rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><path d="M21 15l-5-5L5 21" />
     </svg>
     <span style={{ fontSize: "11px", color: COLORS.bark, fontFamily: "'Cormorant Garamond', serif", letterSpacing: "0.12em", textTransform: "uppercase" }}>{label}</span>
+    </>)}
   </div>
 );
 
@@ -101,6 +105,7 @@ const Nav = ({ page, setPage }) => {
         <button onClick={() => setPage("landing")} style={{ background: "none", border: "none", cursor: "pointer", textAlign: "left", padding: 0 }}>
           <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.35rem", fontWeight: 600, color: COLORS.cream, letterSpacing: "0.06em", lineHeight: 1 }}>Java Estates</div>
           <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "0.6rem", color: COLORS.bark, letterSpacing: "0.22em", textTransform: "uppercase", marginTop: "2px" }}>Organic Marvels</div>
+        {/* <img src="/HorizontalLogo2.png" alt="Java Estates Logo" className="px-[15px] py-[9px] rounded-4xl" style={{ height: "60px", width: "auto", display: "block", background: COLORS.linen }} /> */}
         </button>
 
         {isMobile ? (
@@ -375,8 +380,13 @@ const LandingPage = ({ setPage }) => {
       <section style={{ padding: sectionPad, background: COLORS.cream }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: isMobile ? "2.5rem" : "5rem", alignItems: "center" }}>
-            <div>{IMG_PLACEHOLDER("Farm Overview", isMobile ? "16/9" : "1/1")}</div>
-            <div>
+<div>
+  {IMG_PLACEHOLDER(
+    "Farm Overview",
+    isMobile ? "16/9" : "1/1",
+    "/FarmOverview.jpeg"
+  )}
+</div>            <div>
               <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "0.75rem", letterSpacing: "0.25em", textTransform: "uppercase", color: COLORS.terracotta, marginBottom: "1rem" }}>Our Mission</div>
               <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.8rem, 5vw, 2.8rem)", fontWeight: 400, color: COLORS.forest, margin: "0 0 1.25rem", lineHeight: 1.15 }}>Cultivating Purity,<br /><em>Harvesting Trust</em></h2>
 
@@ -696,7 +706,15 @@ const ContactPage = ({ setPage }) => {
                 </address>
               </div>
               <LeafDivider color={COLORS.bark} />
-              <div>{IMG_PLACEHOLDER("Farm Location", "4/3")}</div>
+              <a href="https://maps.app.goo.gl/dLtyCp5J5uiHTzJe6" target="_blank" rel="noopener noreferrer" style={{
+              background: COLORS.forest, border: `1px solid ${COLORS.bark}`,
+              color: COLORS.bark, fontFamily: "'Cormorant Garamond', serif",
+              fontSize: "0.85rem", letterSpacing: "0.15em", textTransform: "uppercase",
+              padding: "8px 20px", cursor: "pointer", transition: "all 0.2s", width: "fit-content", borderRadius: "3px",
+            }}
+              onMouseEnter={e => { e.target.style.background = COLORS.bark; e.target.style.color = COLORS.forest; }}
+              onMouseLeave={e => { e.target.style.background = COLORS.forest; e.target.style.color = COLORS.bark; }}
+            >Maps Location</a>
               <p style={{ fontFamily: "'Crimson Pro', serif", fontSize: "1rem", color: COLORS.charcoal, lineHeight: 1.85 }}>
                 Looking to collaborate for all your organic agricultural and dairy product needs? We're thrilled to connect with you.
               </p>
