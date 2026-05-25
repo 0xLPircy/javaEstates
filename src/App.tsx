@@ -257,7 +257,7 @@ const Carousel = () => {
           <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "0.75rem", letterSpacing: "0.25em", textTransform: "uppercase", color: COLORS.bark, marginBottom: "0.75rem" }}>Gallery</div>
           <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.8rem, 5vw, 3rem)", fontWeight: 400, color: COLORS.cream, margin: "0 0 1rem" }}>Life at Java Estates</h2>
           <p style={{ fontFamily: "'Crimson Pro', serif", fontSize: "1.05rem", color: `${COLORS.cream}99`, maxWidth: "560px", margin: "0 auto", lineHeight: 1.7 }}>
-            Join us on this journey of organic excellence and sustainability.
+            Join us on this journey of organic excellence and sustainability. Partner with Java Estates, where nature thrives, quality shines, and the future is greener. Together, let's cultivate a better world through organic agriculture and dairy farming. 
           </p>
         </div>
 
@@ -332,8 +332,11 @@ const LandingPage = ({ setPage }) => {
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(3.5rem, 14vw, 6rem)", fontWeight: 300, color: COLORS.cream, margin: "0 0 1rem", lineHeight: 0.95, letterSpacing: "-0.01em" }}>
             Java<br /><em style={{ fontStyle: "italic", color: COLORS.bark }}>Estates</em>
           </h1>
-          <p style={{ fontFamily: "'Crimson Pro', serif", fontSize: "clamp(1rem, 3.5vw, 1.3rem)", color: `${COLORS.cream}CC`, letterSpacing: "0.08em", marginBottom: "2.5rem", fontStyle: "italic" }}>
+          <p style={{ fontFamily: "'Crimson Pro', serif", fontSize: "clamp(1rem, 3.5vw, 1.3rem)", color: `${COLORS.cream}CC`, letterSpacing: "0.08em", marginBottom: "0.9rem", fontStyle: "italic" }}>
             Journey into the World of Organic Marvels
+          </p>
+          <p style={{ fontFamily: "'Cormorant Garamon', serif", fontSize: "clamp(0.5rem, 2.7vw, 0.9rem)", color: COLORS.bark, letterSpacing: "0.08em", marginBottom: "2.5rem", fontStyle: "italic" }}>
+            Your trusted partner in organic agricultural and dairy farming. <br></br>Passionate about sustainable practices and dedicated to providing high-quality organic products.
           </p>
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
             <button onClick={() => setPage("a2milk")} style={{
@@ -376,15 +379,11 @@ const LandingPage = ({ setPage }) => {
             <div>
               <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "0.75rem", letterSpacing: "0.25em", textTransform: "uppercase", color: COLORS.terracotta, marginBottom: "1rem" }}>Our Mission</div>
               <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.8rem, 5vw, 2.8rem)", fontWeight: 400, color: COLORS.forest, margin: "0 0 1.25rem", lineHeight: 1.15 }}>Cultivating Purity,<br /><em>Harvesting Trust</em></h2>
-              <p style={{ fontFamily: "'Crimson Pro', serif", fontSize: "1.05rem", color: COLORS.charcoal, lineHeight: 1.85, marginBottom: "1.25rem" }}>
-                Your trusted partner in organic agricultural and dairy farming. Passionate about sustainable practices and dedicated to providing high-quality organic products.
-              </p>
-              <p style={{ fontFamily: "'Crimson Pro', serif", fontSize: "1.05rem", color: COLORS.charcoal, lineHeight: 1.85, marginBottom: "1.5rem" }}>
-                Our skilled farmers meticulously cultivate a diverse range of organic crops — from nutrient-rich vegetables to flavorful fruits — free from harmful chemicals and GMOs.
-              </p>
+
+              <p style={{ fontFamily: "'Crimson Pro', serif", fontSize: "1.05rem", color: COLORS.charcoal, lineHeight: 1.85, marginBottom: "1.5rem" }}>Our skilled farmers meticulously cultivate a diverse range of organic crops, ensuring they meet strict organic standards. From nutrient-rich vegetables to flavorful fruits, we take pride in offering premium produce that is free from harmful chemicals and genetically modified organisms.</p>
               <LeafDivider color={COLORS.terracotta} />
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
-                {["Organic Certified", "No GMO", "Sustainable Farming", "Renewable Energy"].map(tag => (
+                {["Organic", "No GMO", "Sustainable Farming", "Renewable Energy"].map(tag => (
                   <div key={tag} style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
                     <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: COLORS.moss, flexShrink: 0 }} />
                     <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "0.95rem", color: COLORS.forest, letterSpacing: "0.05em" }}>{tag}</span>
@@ -453,7 +452,7 @@ const LandingPage = ({ setPage }) => {
             Discover Our<br /><em style={{ color: COLORS.bark }}>A2 Milk</em>
           </h2>
           <p style={{ fontFamily: "'Crimson Pro', serif", fontSize: "1.1rem", color: `${COLORS.cream}BB`, lineHeight: 1.8, marginBottom: "2.5rem" }}>
-            A true testament to our commitment to quality and responsible farming practices — pure, easily digestible, and crafted with love from our Java Estates farm.
+            We go the extra mile to bring you exceptional dairy products that are sustainably crafted. <br></br>A true testament to our commitment to quality and responsible farming practices, pure, easily digestible, and crafted with love from our Java Estates farm.
           </p>
           <button onClick={() => setPage("a2milk")} style={{
             background: "none", border: `1px solid ${COLORS.bark}`,
@@ -463,7 +462,7 @@ const LandingPage = ({ setPage }) => {
           }}
             onMouseEnter={e => { e.target.style.background = COLORS.bark; e.target.style.color = COLORS.forest; }}
             onMouseLeave={e => { e.target.style.background = "none"; e.target.style.color = COLORS.bark; }}
-          >Explore the Journey →</button>
+          >Explore the A2 Journey →</button>
         </div>
       </section>
 
@@ -506,7 +505,7 @@ const A2MilkPage = ({ setPage }) => {
               Behold the sprawling wonderland of Java Estates, where sustainable farming practices flourish in harmony with nature's rhythm. Breathe in the crisp, clean air as your eyes wander across our idyllic pastures.
             </p>
             <p style={{ fontFamily: "'Crimson Pro', serif", fontSize: "1.05rem", color: COLORS.charcoal, lineHeight: 1.85 }}>
-              Here, our cows roam freely, their hooves caressing the earth in a joyful dance. Witness the lush greenery nurtured without a trace of harmful additives or pesticides.
+              Here, our cows roam freely, their hooves caressing the earth in a joyful dance. Witness the lush greenery nurtured without a trace of harmful additives or pesticides.  as we embrace the magic of organic and natural feed options. In this enchanting realm, our cows thrive, producing milk that resonates with the essence of nature itself.
             </p>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
@@ -550,7 +549,7 @@ const A2MilkPage = ({ setPage }) => {
               From udder to bottle, our commitment to excellence resonates through every step. State-of-the-art facilities where hygiene and safety intertwine.
             </p>
             <p style={{ fontFamily: "'Crimson Pro', serif", fontSize: "1.05rem", color: COLORS.charcoal, lineHeight: 1.85 }}>
-              Each batch is scrutinized, allowing only the most pristine and nutrient-rich milk to reach your table. Complete traceability — a window into the transparency that defines our craft.
+              Each batch is scrutinized, allowing only the most pristine and nutrient-rich milk to reach your table. Complete traceability, a window into the transparency that defines our craft.
             </p>
             <LeafDivider color={COLORS.moss} />
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem" }}>
@@ -576,7 +575,7 @@ const A2MilkPage = ({ setPage }) => {
             A pure, easily digestible alternative to traditional milk, carefully crafted on our Java Estates farm.
           </p>
           <p style={{ fontFamily: "'Crimson Pro', serif", fontSize: "1.1rem", color: `${COLORS.cream}BB`, lineHeight: 1.85, marginBottom: "2.5rem" }}>
-            With each sip, you become part of a movement — a conscious choice to support sustainability, embrace quality, and honor the environment.
+            With each sip, you become part of a movement, a conscious choice to support sustainability, embrace quality, and honor the environment.
           </p>
           <div style={{ margin: "0 auto 2.5rem", maxWidth: "340px" }}>
             {IMG_PLACEHOLDER("A2 Milk Bottle", "4/3")}
@@ -675,7 +674,7 @@ const ContactPage = ({ setPage }) => {
       <section style={{ background: COLORS.bark, padding: isMobile ? "2rem 1.25rem" : "2.5rem 2rem" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto", textAlign: "center" }}>
           <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1rem, 3.5vw, 1.5rem)", fontStyle: "italic", color: COLORS.forest, margin: 0, lineHeight: 1.6 }}>
-            "Whether you want to discuss your requirements, dive into our product range, or plan a visit to our enchanting farm — we're here to make it happen."
+            "Whether you want to discuss your requirements, dive into our product range, or plan a visit to our enchanting farm, we're here to make it happen."
           </p>
         </div>
       </section>
