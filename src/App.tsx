@@ -243,7 +243,7 @@ const Footer = ({ setPage }) => {
 
 // ── CAROUSEL ──────────────────────────────────────────────────────────────────
 const Carousel = () => {
-  const slides = ["Farm Landscape", "Herd Grazing", "Dairy Facility", "Organic Crops", "Biogas Plant", "Harvest Season"];
+  const slides = ["FarmLandscape.jpg","Farmer.png", "BioGasCake.jpeg", "farmhouse.jpg", "bottles.jpg", "BiogasPlant.jpg"];
   const [active, setActive] = useState(0);
   const timerRef = useRef(null);
   const isMobile = useIsMobile();
@@ -273,13 +273,10 @@ const Carousel = () => {
                 position: "absolute", inset: 0,
                 opacity: i === active ? 1 : 0,
                 transition: "opacity 0.8s ease",
-                background: `linear-gradient(135deg, ${COLORS.linen} 0%, ${COLORS.bark}44 40%, ${COLORS.moss}33 100%)`,
+                // background: `linear-gradient(135deg, ${COLORS.linen} 0%, ${COLORS.bark}44 40%, ${COLORS.moss}33 100%)`,
                 display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: "1rem",
               }}>
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke={COLORS.bark} strokeWidth="1">
-                  <rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><path d="M21 15l-5-5L5 21" />
-                </svg>
-                <span style={{ fontFamily: "'Cormorant Garamond', serif", color: COLORS.earth, fontSize: "0.8rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>{s}</span>
+                {IMG_PLACEHOLDER(s, "16/9", `/${slides[i]}`)}
               </div>
             ))}
           </div>
@@ -414,12 +411,12 @@ const LandingPage = ({ setPage }) => {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)", gap: "1.5rem" }}>
             {[
-              { label: "Organic Crops", body: "Nutrient-rich vegetables and flavorful fruits grown without synthetic pesticides, herbicides, or GMOs across our fertile Java lands.", img: "Crop Fields" },
-              { label: "Dairy Farming", body: "Our happy cattle graze freely on lush pastures, producing the finest organic milk and dairy products under the highest standards.", img: "Dairy Cows" },
-              { label: "Biogas Energy", body: "Our innovative captive biogas plant converts organic waste into clean renewable energy, powering our entire facility sustainably.", img: "Biogas Plant" },
+              { label: "Organic Crops", body: "Nutrient-rich vegetables and flavorful fruits grown without synthetic pesticides, herbicides, or GMOs across our fertile Java lands.", img: "/CropFields.jpg" },
+              { label: "Dairy Farming", body: "Our happy cattle graze freely on lush pastures, producing the finest organic milk and dairy products under the highest standards.", img: "/DairyCows.JPG" },
+              { label: "Biogas Energy", body: "Our innovative captive biogas plant converts organic waste into clean renewable energy, powering our entire facility sustainably.", img: "/BiogasPlant.jpg" },
             ].map(({ label, body, img }) => (
               <div key={label} style={{ background: COLORS.cream, border: `1px solid ${COLORS.bark}33` }}>
-                {IMG_PLACEHOLDER(img, "5/4")}
+                {IMG_PLACEHOLDER(label, "5/4", img)}
                 <div style={{ padding: "1.25rem" }}>
                   <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontWeight: 500, color: COLORS.forest, margin: "0 0 0.6rem" }}>{label}</h3>
                   <p style={{ fontFamily: "'Crimson Pro', serif", fontSize: "1rem", color: COLORS.charcoal, lineHeight: 1.75, margin: 0 }}>{body}</p>
@@ -441,14 +438,14 @@ const LandingPage = ({ setPage }) => {
                 Quality is at the heart of everything we do. We implement rigorous quality control measures at every stage, ensuring our products consistently exceed expectations.
               </p>
               <p style={{ fontFamily: "'Crimson Pro', serif", fontSize: "1.05rem", color: COLORS.charcoal, lineHeight: 1.85 }}>
-                Our organic certification guarantees produce free from synthetic pesticides, herbicides, antibiotics, and growth hormones.
+                Guaranteeing produce free from synthetic pesticides, herbicides, antibiotics, and growth hormones.
               </p>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
-              {IMG_PLACEHOLDER("Quality Lab", "1/1")}
-              {IMG_PLACEHOLDER("Certification", "1/1")}
-              {IMG_PLACEHOLDER("Harvest", "1/1")}
-              {IMG_PLACEHOLDER("Packaging", "1/1")}
+              {IMG_PLACEHOLDER("Quality Lab", "1/1", "/QualityLab.jpg")}
+              {IMG_PLACEHOLDER("Field", "1/1", "/field1.jpg")}
+              {IMG_PLACEHOLDER("Harvest", "1/1", "/Harvest.jpg")}
+              {IMG_PLACEHOLDER("Packaging", "1/1", "/Packaging.JPG")}
             </div>
           </div>
         </div>
@@ -501,7 +498,7 @@ const A2MilkPage = ({ setPage }) => {
               Nurturing Nature, Crafting A2 Milk: Unveiling Java Estates' Sustainable Delight. From captivating vistas to meticulous craftsmanship, every sip tells a story.
             </p>
           </div>
-          <div>{IMG_PLACEHOLDER("A2 Cows Grazing", "4/3")}</div>
+          <div>{IMG_PLACEHOLDER("A2 Cows Grazing", "4/3", "/A2CowsGrazing.jpeg")}</div>
         </div>
       </section>
 
@@ -519,8 +516,8 @@ const A2MilkPage = ({ setPage }) => {
             </p>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-            {IMG_PLACEHOLDER("Pastures Landscape", "16/9")}
-            {IMG_PLACEHOLDER("Cows Roaming Free", "16/9")}
+            {IMG_PLACEHOLDER("Pastures Landscape", "16/9", "/Landscape.jpeg")}
+            {IMG_PLACEHOLDER("Cows Roaming Free", "16/9", "/CowsRoaming.jpg")}
           </div>
         </div>
       </section>
@@ -536,9 +533,9 @@ const A2MilkPage = ({ setPage }) => {
             </p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)", gap: "1.25rem" }}>
-            {IMG_PLACEHOLDER("Champion Breed 1", "4/3")}
-            {IMG_PLACEHOLDER("Champion Breed 2", "4/3")}
-            {IMG_PLACEHOLDER("Champion Breed 3", "4/3")}
+            {IMG_PLACEHOLDER("Gir Breed", "4/3", "/Gir.png")}
+            {IMG_PLACEHOLDER("Sahiwal Breed 2", "4/3", "/Sahiwal.png")}
+            {IMG_PLACEHOLDER("Halikar Breed 3", "4/3", "/Halikar.png")}
           </div>
         </div>
       </section>
@@ -547,10 +544,10 @@ const A2MilkPage = ({ setPage }) => {
       <section style={{ padding: sectionPad, background: COLORS.cream }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: isMobile ? "2.5rem" : "5rem", alignItems: "center" }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
-            {IMG_PLACEHOLDER("Testing Lab", "1/1")}
-            {IMG_PLACEHOLDER("Quality Control", "1/1")}
-            {IMG_PLACEHOLDER("Bottling", "1/1")}
-            {IMG_PLACEHOLDER("Fresh Product", "1/1")}
+            {IMG_PLACEHOLDER("Testing Lab", "1/1", "/QualityLab.jpg")}
+            {/* {IMG_PLACEHOLDER("Quality Control", "1/1", "/QualityControl.jpg")} */}
+            {IMG_PLACEHOLDER("Bottling", "1/1", "/bottles.jpg")}
+            {/* {IMG_PLACEHOLDER("Fresh Product", "1/1", "/FreshProduct.webp")} */}
           </div>
           <div>
             <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "0.75rem", letterSpacing: "0.25em", textTransform: "uppercase", color: COLORS.terracotta, marginBottom: "1rem" }}>Quality Control</div>
@@ -587,8 +584,8 @@ const A2MilkPage = ({ setPage }) => {
           <p style={{ fontFamily: "'Crimson Pro', serif", fontSize: "1.1rem", color: `${COLORS.cream}BB`, lineHeight: 1.85, marginBottom: "2.5rem" }}>
             With each sip, you become part of a movement, a conscious choice to support sustainability, embrace quality, and honor the environment.
           </p>
-          <div style={{ margin: "0 auto 2.5rem", maxWidth: "340px" }}>
-            {IMG_PLACEHOLDER("A2 Milk Bottle", "4/3")}
+          <div style={{ margin: "0 auto 2.5rem", maxWidth: "930px", maxHeight: "300px", overflow: "hidden", borderRadius: "8px" }}>
+            {IMG_PLACEHOLDER("A2 Milk Bottle", "4/3", "/FreshProduct.webp")}
           </div>
         </div>
       </section>
@@ -666,7 +663,7 @@ const ContactPage = ({ setPage }) => {
     <div style={{ background: COLORS.mist }}>
       {/* Hero */}
       <section style={{ paddingTop: "64px", background: COLORS.forest }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: isMobile ? "3rem 1.25rem" : "5rem 2rem 4rem", display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: isMobile ? "2rem" : "5rem", alignItems: "end" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: isMobile ? "3rem 1.25rem" : "5rem 2rem 4rem", display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: isMobile ? "2rem" : "3.3rem", alignItems: "center" }}>
           <div>
             <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "0.75rem", letterSpacing: "0.3em", textTransform: "uppercase", color: COLORS.bark, marginBottom: "1.25rem" }}>Let's Collaborate</div>
             <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.2rem, 8vw, 4rem)", fontWeight: 300, color: COLORS.cream, margin: "0 0 1.25rem", lineHeight: 1.05 }}>
@@ -676,7 +673,7 @@ const ContactPage = ({ setPage }) => {
               At Java Estates, we're committed to promoting sustainable farming practices and providing consumers with the purest organic options.
             </p>
           </div>
-          <div>{IMG_PLACEHOLDER("Farm Entrance", "4/3")}</div>
+          <div>{IMG_PLACEHOLDER("Farm Entrance", "5/2", "/farmhouse.jpg")}</div>
         </div>
       </section>
 
